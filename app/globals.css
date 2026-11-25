@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #0b1020;
+  color: #eceef2;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #ffb547;
+  color: #0b1020;
+}
+
+:focus-visible {
+  outline: 2px solid #ffb547;
+  outline-offset: 3px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.85);
+}
+
+/* headline voice: Anybody stretched wide */
+.wide {
+  font-family: var(--font-anybody);
+  font-stretch: 125%;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* split-flap cell */
+.flap {
+  display: inline-grid;
+  place-items: center;
+  width: 0.78em;
+  height: 1.3em;
+  background: linear-gradient(#1b2338 49%, #0b1020 49%, #0b1020 51%, #1b2338 51%);
+  border-radius: 2px;
+  font-family: var(--font-anybody);
+  font-stretch: 75%;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* perforated ticket edge */
+.perforated {
+  -webkit-mask: radial-gradient(circle 7px at 50% 0, transparent 6.5px, #000 7px) 0 0 / 22px 100% repeat-x;
+  mask: radial-gradient(circle 7px at 50% 0, transparent 6.5px, #000 7px) 0 0 / 22px 100% repeat-x;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* hero: slow dolly toward the train, then back */
+@keyframes platform-push {
+  from {
+    transform: scale(1.02) translateX(0);
+  }
+  to {
+    transform: scale(1.1) translateX(-1.5%);
+  }
+}
+.hero-still {
+  animation: platform-push 22s ease-in-out infinite alternate;
+  transform-origin: 70% 55%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
